@@ -1,5 +1,22 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
+  /** copy https://www.npmjs.com/package/@tsconfig/svelte */
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Svelte",
+
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es2017",
+    "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
+    "sourceMap": true,
+    "types": ["svelte", "node"],
+ 
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  /** copy end */
 
   "include": ["src/**/*"],
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
