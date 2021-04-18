@@ -43,8 +43,8 @@ export default {
 		replace({
       process: JSON.stringify({
         env: {
-					CLIENT_ID: process.env.CLIENT_ID || 'abc',
-					REDIRECT_URI: process.env.REDIRECT_URI || 'http://localhost:5000'
+					CLIENT_ID: process.env.CLIENT_ID,
+					REDIRECT_URI: process.env.REDIRECT_URI
         }
       }),
     }),
