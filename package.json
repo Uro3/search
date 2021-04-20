@@ -6,7 +6,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "validate": "svelte-check"
+    "validate": "svelte-check",
+    "mock:start": "json-server --watch db.json"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -15,6 +16,7 @@
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^1.0.0",
     "@types/node": "^14.14.41",
+    "json-server": "^0.16.3",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
