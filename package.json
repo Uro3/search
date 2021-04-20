@@ -5,9 +5,9 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "start": "sirv public --no-clear --host 0.0.0.0",
     "validate": "svelte-check",
-    "mock:start": "json-server --watch db.json"
+    "mock:start": "json-server --host 0.0.0.0 --watch mocks/data.json"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
