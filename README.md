@@ -7,11 +7,11 @@ This app is created with [Svelte](https://svelte.dev).
 Install the dependencies.
 
 ```bash
-yarn install
+docker-compose run --rm --no-deps app yarn
 ```
 
-run app with [Rollup](https://rollupjs.org)
+Run app with Docker Compose.
 
 ```bash
-yarn dev
+docker-compose up -d
 ```
