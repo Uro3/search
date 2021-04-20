@@ -1,10 +1,12 @@
 <script lang="ts">
 	export let clientId: string;
 	export let redirectUri: string;
+	export let youtubeDataApiEndpoint: string;
 
-
-	const handleClick = () => {
-		console.log("clicked!!")
+	const handleClick = async () => {
+		const response = await fetch(youtubeDataApiEndpoint);
+		const data = await response.json();
+		console.log(data)
 	};
 </script>
 
