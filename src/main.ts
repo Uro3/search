@@ -5,6 +5,7 @@ const app = new App({
 	props: {
 		clientId: process.env.CLIENT_ID || '',
 		redirectUri: process.env.REDIRECT_URI || '',
+		googleAuthEndpoint: process.env.GOOGLE_AUTH_ENDPOINT || '',
 		youtubeDataApiEndpoint: process.env.YOUTUBE_DATA_API_ENDPOINT || '',
 	}
 });
