@@ -5,10 +5,8 @@ services:
     working_dir: /app
     command: yarn dev
     environment:
-      CLIENT_ID: test
-      REDIRECT_URI: http://localhost:5000
-      GOOGLE_AUTH_ENDPOINT: http://localhost:3000/test
       YOUTUBE_DATA_API_ENDPOINT: http://localhost:3000/test
+      YOUTUBE_DATA_API_KEY: test
     volumes:
       - .:/app
     ports:

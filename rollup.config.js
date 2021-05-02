@@ -43,10 +43,8 @@ export default {
 		replace({
       process: JSON.stringify({
         env: {
-					CLIENT_ID: process.env.CLIENT_ID,
-					REDIRECT_URI: process.env.REDIRECT_URI,
-					GOOGLE_AUTH_ENDPOINT: process.env.GOOGLE_AUTH_ENDPOINT,
-					YOUTUBE_DATA_API_ENDPOINT: process.env.YOUTUBE_DATA_API_ENDPOINT
+					YOUTUBE_DATA_API_ENDPOINT: process.env.YOUTUBE_DATA_API_ENDPOINT,
+					YOUTUBE_DATA_API_KEY: process.env.YOUTUBE_DATA_API_KEY
         }
       }),
     }),
