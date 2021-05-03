@@ -23,7 +23,7 @@ export const execSearch = async (endpoint: string, key: string, query: string, p
       title: item.snippet.title,
       thumbnailUrl: item.snippet.thumbnails.high.url,
       channelTitle: item.snippet.channelTitle,
-      publishTime: item.snippet.publishTime
+      publishedAt: item.snippet.publishedAt
     }))
   };
 };

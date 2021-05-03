@@ -10,6 +10,6 @@
 		<img src={video.thumbnailUrl} alt="thumbnail" width=320>
 		<p>{video.title}</p>
 		<p>{video.channelTitle}</p>
-		<p>{video.publishTime}</p>
+		<p>{video.publishedAt}</p>
 	</a>
 {/each}

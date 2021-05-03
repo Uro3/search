@@ -3,7 +3,7 @@ export type Video = {
   title: string;
   thumbnailUrl: string;
   channelTitle: string;
-  publishTime: string;
+  publishedAt: string;
 }
 
 export type Result = {
