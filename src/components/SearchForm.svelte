@@ -8,7 +8,7 @@
   let query: string = '';
 
 	const handleClick = async () => {
-		const response = await fetch(`${endpoint}?q=${query}&key=${key}`);
+		const response = await fetch(`${endpoint}?q=${query}&part=snippet&type=video&key=${key}`);
 		const data = await response.json();
     console.log('api response: ', data);
 
