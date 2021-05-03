@@ -1,29 +1,7 @@
 <script lang="ts">
-	import { apiProps, result, currentSearchParams } from '../stores';
-	import { execSearch } from '../services/search';
-  import type { Result, SearchParams } from '../types';
+	import { result } from '../stores';
 	import ResultViewVideoList from './ResultViewVideoList.svelte';
-
-	const next = async () => {
-		await fetchData($result.nextPageToken)
-	};
-
-	const prev = async () => {
-		await fetchData($result.prevPageToken)
-	};
-
-	const fetchData = async (token: string) => {
-		const params: SearchParams = {
-			...$currentSearchParams,
-			pageToken: token
-		}
-		const newResult: Result = await execSearch($apiProps, params);
-
-    console.log('result: ', newResult);
-
-    result.set(newResult);
-		currentSearchParams.set(params);
-	};
+	import ResultViewPaginator from './ResultViewPaginator.svelte';
 </script>
 
 <p>
@@ -31,15 +9,4 @@
 </p>
 
 <ResultViewVideoList videos={$result.videos} />
-
-{#if $result.prevPageToken}
-	<button on:click={prev}>
-		前へ
-	</button>
-{/if}
-
-{#if $result.nextPageToken}
-	<button on:click={next}>
-		次へ
-	</button>
-{/if}
+<ResultViewPaginator prevPageToken={$result.prevPageToken} nextPageToken={$result.nextPageToken} />
