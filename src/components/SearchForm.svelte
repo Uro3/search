@@ -3,6 +3,8 @@
   import { execSearch } from '../services/search';
   import type { Result, SearchParams } from '../types';
 
+  export let channelId: string = '';
+
   let query: string = '';
   let publishedAfterInput: string = '';
   let publishedBeforeInput: string = '';
@@ -13,6 +15,7 @@
 	const handleClick = async () => {
     const params: SearchParams = {
       query,
+      channelId,
       publishedAfter,
       publishedBefore
     };

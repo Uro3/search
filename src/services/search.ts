@@ -16,6 +16,7 @@ export const execSearch = async (api: APIProps, params: SearchParams): Promise<R
       id: item.id.videoId,
       title: item.snippet.title,
       thumbnailUrl: item.snippet.thumbnails.high.url,
+      channelId: item.snippet.channelId,
       channelTitle: item.snippet.channelTitle,
       publishedAt: item.snippet.publishedAt
     })),
@@ -26,6 +27,9 @@ export const execSearch = async (api: APIProps, params: SearchParams): Promise<R
 
 const generateSearchURL = (api: APIProps, params: SearchParams): string => {
   const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&key=${api.key}`);
+  if (params.channelId) {
+    url.searchParams.append('channelId', params.channelId);
+  }
   if (params.publishedAfter) {
     url.searchParams.append('publishedAfter', params.publishedAfter);
   }

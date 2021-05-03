@@ -7,6 +7,7 @@ export type Video = {
   id: string;
   title: string;
   thumbnailUrl: string;
+  channelId: string;
   channelTitle: string;
   publishedAt: string;
 }
@@ -20,6 +21,7 @@ export type Result = {
 
 export type SearchParams = {
   query: string;
+  channelId?: string;
   publishedAfter?: string;
   publishedBefore?: string;
   pageToken?: string;
