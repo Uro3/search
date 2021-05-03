@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    image: node:14.16-alpine3.13
+    working_dir: /app
+    command: yarn dev
+    environment:
+      YOUTUBE_DATA_API_ENDPOINT: http://localhost:3000/test
+      YOUTUBE_DATA_API_KEY: test
+    volumes:
+      - .:/app
+    ports:
+      - "127.0.0.1:5000:5000"
+  api_mock:
+    image: node:14.16-alpine3.13
+    working_dir: /app
+    command: yarn mock:start
+    volumes:
+      - .:/app
+    ports:
+      - "127.0.0.1:3000:3000"
