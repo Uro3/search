@@ -17,6 +17,7 @@
       videos: data.items.map(item => ({
         id: item.id.videoId,
         title: item.snippet.title,
+        thumbnailUrl: item.snippet.thumbnails.high.url,
         channelTitle: item.snippet.channelTitle,
         publishTime: item.snippet.publishTime
       }))
