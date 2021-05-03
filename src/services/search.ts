@@ -1,20 +1,11 @@
 import type { APIProps, Result, SearchParams } from '../types';
 
 export const execSearch = async (api: APIProps, params: SearchParams): Promise<Result> => {
-  const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&key=${api.key}`);
-  if (params.publishedAfter) {
-    url.searchParams.append('publishedAfter', params.publishedAfter);
-  }
-  if (params.publishedBefore) {
-    url.searchParams.append('publishedBefore', params.publishedBefore);
-  }
-  if (params.pageToken) {
-    url.searchParams.append('pageToken', params.pageToken);
-  }
+  const url = generateSearchURL(api, params);
 
-  console.log('api request: ', url.href);
+  console.log('api request: ', url);
 
-  const response = await fetch(url.href);
+  const response = await fetch(url);
 	const data = await response.json();
 
   console.log('api response: ', data);
@@ -31,4 +22,19 @@ export const execSearch = async (api: APIProps, params: SearchParams): Promise<R
     nextPageToken: data.nextPageToken,
     prevPageToken: data.prevPageToken
   };
+};
+
+const generateSearchURL = (api: APIProps, params: SearchParams): string => {
+  const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&key=${api.key}`);
+  if (params.publishedAfter) {
+    url.searchParams.append('publishedAfter', params.publishedAfter);
+  }
+  if (params.publishedBefore) {
+    url.searchParams.append('publishedBefore', params.publishedBefore);
+  }
+  if (params.pageToken) {
+    url.searchParams.append('pageToken', params.pageToken);
+  }
+
+  return url.href;
 };
