@@ -1,10 +1,7 @@
 <script lang="ts">
-  import { result, currentSearchParams } from '../stores';
+  import { apiProps, result, currentSearchParams } from '../stores';
   import { execSearch } from '../services/search';
   import type { Result, SearchParams } from '../types';
-
-	export let endpoint: string;
-	export let key: string;
 
   let query: string = '';
   let publishedAfterInput: string = '';
@@ -19,7 +16,7 @@
       publishedAfter,
       publishedBefore
     };
-    const newResult: Result = await execSearch(endpoint, key, params);
+    const newResult: Result = await execSearch($apiProps, params);
 
     console.log('result: ', newResult);
 

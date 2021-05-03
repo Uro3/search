@@ -1,3 +1,8 @@
+export type APIProps = {
+  endpoint: string
+  key: string
+}
+
 export type Video = {
   id: string;
   title: string;

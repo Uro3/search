@@ -1,7 +1,7 @@
-import type { Result, SearchParams } from '../types';
+import type { APIProps, Result, SearchParams } from '../types';
 
-export const execSearch = async (endpoint: string, key: string, params: SearchParams): Promise<Result> => {
-  const url = new URL(`${endpoint}?part=snippet&type=video&q=${params.query}&key=${key}`);
+export const execSearch = async (api: APIProps, params: SearchParams): Promise<Result> => {
+  const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&key=${api.key}`);
   if (params.publishedAfter) {
     url.searchParams.append('publishedAfter', params.publishedAfter);
   }
