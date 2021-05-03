@@ -1,31 +1,36 @@
 <script lang="ts">
-  import { result } from '../stores';
-  import type { Result } from '../types';
+  import { apiProps, result, currentSearchParams } from '../stores';
+  import { searchVideo } from '../services/search';
+  import type { Result, SearchParams } from '../types';
 
-	export let endpoint: string;
-	export let key: string;
+  export let channelId: string = '';
 
   let query: string = '';
+  let publishedAfterInput: string = '';
+  let publishedBeforeInput: string = '';
+
+  $: publishedAfter = publishedAfterInput ? new Date(publishedAfterInput).toISOString() : '';
+  $: publishedBefore = publishedBeforeInput ? new Date(publishedBeforeInput).toISOString() : '';
 
 	const handleClick = async () => {
-		const response = await fetch(`${endpoint}?q=${query}&key=${key}`);
-		const data = await response.json();
-    console.log('api response: ', data);
-
-    const newResult: Result = {
-      totalResults: data.pageInfo.totalResults,
-      videos: data.items.map(item => ({
-        id: item.id.videoId,
-        title: item.snippet.title,
-        channelTitle: item.snippet.channelTitle,
-        publishTime: item.snippet.publishTime
-      }))
+    const params: SearchParams = {
+      query,
+      channelId,
+      publishedAfter,
+      publishedBefore
     };
-    result.update(() => newResult);
+    const newResult: Result = await searchVideo($apiProps, params);
+
+    console.log('result: ', newResult);
+
+    result.set(newResult);
+    currentSearchParams.set(params);
 	};
 </script>
 
 <input bind:value={query}>
+<input bind:value={publishedAfterInput} type="date">
+<input bind:value={publishedBeforeInput} type="date">
 <button on:click={handleClick}>
   検索
 </button>

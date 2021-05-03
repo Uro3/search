@@ -40,7 +40,7 @@
           },
           "channelTitle": "テストチャンネル",
           "liveBroadcastContent": "none",
-          "publishTime": "2019-04-01T12:00:00Z"
+          "publishedAt": "2019-04-01T12:00:00Z"
         }
       },
       {
@@ -74,7 +74,7 @@
           },
           "channelTitle": "テストチャンネル",
           "liveBroadcastContent": "none",
-          "publishTime": "2020-10-01T12:00:00Z"
+          "publishedAt": "2020-10-01T12:00:00Z"
         }
       },
       {
@@ -108,7 +108,7 @@
           },
           "channelTitle": "テストチャンネル",
           "liveBroadcastContent": "none",
-          "publishTime": "2020-10-02T12:00:00Z"
+          "publishedAt": "2020-10-02T12:00:00Z"
         }
       },
       {
@@ -142,7 +142,7 @@
           },
           "channelTitle": "Test Channel",
           "liveBroadcastContent": "none",
-          "publishTime": "2021-03-01T20:00:00Z"
+          "publishedAt": "2021-03-01T20:00:00Z"
         }
       },
       {
@@ -176,7 +176,7 @@
           },
           "channelTitle": "Test Channel",
           "liveBroadcastContent": "none",
-          "publishTime": "2021-03-11T07:00:00Z"
+          "publishedAt": "2021-03-11T07:00:00Z"
         }
       }
     ]
