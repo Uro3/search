@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 	import { apiProps } from './stores';
 	import SearchForm from './components/SearchForm.svelte';
 	import ResultView from './components/ResultView.svelte';
@@ -25,5 +25,5 @@
 
 <main>
 	<SearchForm channelId={channelId} />
-	<ResultView />
+	<ResultView channelId={channelId} />
 </main>

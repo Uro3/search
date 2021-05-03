@@ -1,7 +1,7 @@
 import type { APIProps, Result, SearchParams } from '../types';
 
-export const execSearch = async (api: APIProps, params: SearchParams): Promise<Result> => {
-  const url = generateSearchURL(api, params);
+export const searchVideo = async (api: APIProps, params: SearchParams): Promise<Result> => {
+  const url = generateSearchVideoURL(api, params);
 
   console.log('api request: ', url);
 
@@ -25,7 +25,15 @@ export const execSearch = async (api: APIProps, params: SearchParams): Promise<R
   };
 };
 
-const generateSearchURL = (api: APIProps, params: SearchParams): string => {
+export const getChannelTitleById = async (api: APIProps, channelId: string): Promise<string> => {
+  const url = new URL(`${api.endpoint}?part=snippet&type=channel&channelId=${channelId}&key=${api.key}`).href;
+  const response = await fetch(url);
+	const data = await response.json();
+
+  return data.items[0].snippet.channelTitle;
+};
+
+const generateSearchVideoURL = (api: APIProps, params: SearchParams): string => {
   const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&key=${api.key}`);
   if (params.channelId) {
     url.searchParams.append('channelId', params.channelId);

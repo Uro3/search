@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { apiProps, result, currentSearchParams } from '../stores';
-	import { execSearch } from '../services/search';
+	import { searchVideo } from '../services/search';
   import type { Result, SearchParams } from '../types';
 
 	export let prevPageToken: string;
@@ -19,7 +19,7 @@
 			...$currentSearchParams,
 			pageToken: token
 		}
-		const newResult: Result = await execSearch($apiProps, params);
+		const newResult: Result = await searchVideo($apiProps, params);
 
     console.log('result: ', newResult);
 
