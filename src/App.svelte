@@ -11,5 +11,5 @@
 
 <main>
 	<SearchForm endpoint={youtubeDataApiEndpoint} key={youtubeDataApiKey} />
-	<ResultView />
+	<ResultView endpoint={youtubeDataApiEndpoint} key={youtubeDataApiKey} />
 </main>

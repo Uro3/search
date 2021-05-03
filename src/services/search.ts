@@ -1,12 +1,15 @@
-import type { Result } from '../types';
+import type { Result, SearchParams } from '../types';
 
-export const execSearch = async (endpoint: string, key: string, query: string, publishedAfter='', publishedBefore=''): Promise<Result> => {
-  const url = new URL(`${endpoint}?part=snippet&type=video&q=${query}&key=${key}`);
-  if (publishedAfter) {
-    url.searchParams.append('publishedAfter', publishedAfter);
+export const execSearch = async (endpoint: string, key: string, params: SearchParams): Promise<Result> => {
+  const url = new URL(`${endpoint}?part=snippet&type=video&q=${params.query}&key=${key}`);
+  if (params.publishedAfter) {
+    url.searchParams.append('publishedAfter', params.publishedAfter);
   }
-  if (publishedBefore) {
-    url.searchParams.append('publishedBefore', publishedBefore);
+  if (params.publishedBefore) {
+    url.searchParams.append('publishedBefore', params.publishedBefore);
+  }
+  if (params.pageToken) {
+    url.searchParams.append('pageToken', params.pageToken);
   }
 
   console.log('api request: ', url.href);
@@ -24,6 +27,8 @@ export const execSearch = async (endpoint: string, key: string, query: string, p
       thumbnailUrl: item.snippet.thumbnails.high.url,
       channelTitle: item.snippet.channelTitle,
       publishedAt: item.snippet.publishedAt
-    }))
+    })),
+    nextPageToken: data.nextPageToken,
+    prevPageToken: data.prevPageToken
   };
 };
