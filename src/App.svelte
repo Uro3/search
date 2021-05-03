@@ -8,10 +8,10 @@
 	export let youtubeDataApiKey: string;
 
 	onMount(() => {
-		apiProps.update(() => ({
+		apiProps.set({
 			endpoint: youtubeDataApiEndpoint,
 			key: youtubeDataApiKey
-		}));
+		});
 
 		console.log('youtubeDataApiEndpoint: ', youtubeDataApiEndpoint);
 		console.log('youtubeDataApiKey: ', youtubeDataApiKey);

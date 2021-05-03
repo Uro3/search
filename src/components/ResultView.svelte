@@ -13,7 +13,6 @@
 	};
 
 	const fetchData = async (token: string) => {
-		console.log('token: ', token);
 		const params: SearchParams = {
 			...$currentSearchParams,
 			pageToken: token
@@ -22,8 +21,8 @@
 
     console.log('result: ', newResult);
 
-    result.update(() => newResult);
-		currentSearchParams.update(() => params);
+    result.set(newResult);
+		currentSearchParams.set(params);
 	};
 </script>
 

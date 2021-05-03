@@ -20,8 +20,8 @@
 
     console.log('result: ', newResult);
 
-    result.update(() => newResult);
-    currentSearchParams.update(() => params);
+    result.set(newResult);
+    currentSearchParams.set(params);
 	};
 </script>
 
