@@ -6,17 +6,17 @@
 	url.searchParams.delete('channelId');
 </script>
 
+{#if channelTitle}
+	<p>
+		<span class="font-semibold">{channelTitle}</span> で検索中
+	</p>
+	<a href={url.href}>
+		<p class="underline">チャンネル内検索を解除</p>
+	</a>
+{/if}
+
 {#if totalResults}
 	<p>
 		検索結果: {totalResults}件
 	</p>
-{/if}
-
-{#if channelTitle}
-	<p>
-		「{channelTitle}」で検索中
-	</p>
-	<a href={url.href}>
-		<p>チャンネル内検索を解除</p>
-	</a>
 {/if}

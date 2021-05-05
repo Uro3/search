@@ -10,14 +10,20 @@
 	};
 </script>
 
-{#each videos as video (video.id)}
-	<a href="https://www.youtube.com/watch?v={video.id}" target="_blank" rel="noopener noreferrer">
-		<img src={video.thumbnailUrl} alt="thumbnail" width=320>
-		<p>{video.title}</p>
-		<p>{video.channelTitle}</p>
-		<p>{video.publishedAt}</p>
+<div id="result-view-video-list" class="flex flex-col space-y-2">
+	{#each videos as video (video.id)}
+	<a href="https://www.youtube.com/watch?v={video.id}" target="_blank" rel="noopener noreferrer" class="flex flex-row p-2 border rounded shadow">
+		<img src={video.thumbnailUrl} alt="thumbnail" width=320 class="flex-none">
+		<div class="flex-auto flex flex-col justify-between px-2 py-4">
+			<div class="flex flex-col pace-y-2">
+				<p class="text-xl	font-bold">{video.title}</p>
+				<p class="text-sm font-light">{video.publishedAt}</p>
+				<p class="font-light">{video.channelTitle}</p>
+			</div>
+			<a href={generateHrefByChannelId(video.channelId)} class="self-end underline">
+				このチャンネル内で検索
+			</a>
+		</div>
 	</a>
-	<a href={generateHrefByChannelId(video.channelId)}>
-		<p>このチャンネル内で検索</p>
-	</a>
-{/each}
+	{/each}
+</div>

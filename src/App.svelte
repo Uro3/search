@@ -23,7 +23,13 @@
 	});
 </script>
 
-<main>
+<style global lang="postcss">
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+</style>
+
+<main class="container mx-auto max-w-screen-sm">
 	<SearchForm channelId={channelId} />
 	<ResultView channelId={channelId} />
 </main>
