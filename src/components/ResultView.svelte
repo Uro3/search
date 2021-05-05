@@ -21,11 +21,14 @@
 	};
 </script>
 
-{#await getChannelTitlePromise}
-	<p>...waiting</p>
-{:then title}
-	<ResultViewSummary totalResults={$result.totalResults} channelTitle={title} />
-{/await}
+<div id="result-view" class="py-2 space-y-2">
+	{#await getChannelTitlePromise}
+		<p>...waiting</p>
+	{:then title}
+		<ResultViewSummary totalResults={$result.totalResults} channelTitle={title} />
+	{/await}
 
-<ResultViewVideoList videos={$result.videos} />
-<ResultViewPaginator prevPageToken={$result.prevPageToken} nextPageToken={$result.nextPageToken} />
+	<ResultViewPaginator prevPageToken={$result.prevPageToken} nextPageToken={$result.nextPageToken} />
+	<ResultViewVideoList videos={$result.videos} />
+	<ResultViewPaginator prevPageToken={$result.prevPageToken} nextPageToken={$result.nextPageToken} />
+</div>

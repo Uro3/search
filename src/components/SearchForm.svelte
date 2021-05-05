@@ -28,7 +28,7 @@
 	};
 </script>
 
-<div id="search-form-container" class="flex flex-col m-auto py-1 max-w-screen-sm space-y-1">
+<div id="search-form-container" class="flex flex-col m-auto pt-3 pb-1 space-y-1">
   <div id="search-input-field" class="flex">
     <input bind:value={query} class="flex-auto px-2 py-1 border" placeholder="検索ワード">
     <button on:click={handleClick} class="flex-none px-2 py-1 bg-gray-300">

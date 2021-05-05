@@ -29,7 +29,7 @@
   @tailwind utilities;
 </style>
 
-<main class="container mx-auto">
+<main class="container mx-auto max-w-screen-sm">
 	<SearchForm channelId={channelId} />
 	<ResultView channelId={channelId} />
 </main>

@@ -28,14 +28,16 @@
 	};
 </script>
 
-{#if prevPageToken}
-	<button on:click={prev}>
-		前へ
-	</button>
-{/if}
+<div id="result-view-paginator" class="flex justify-center">
+	{#if prevPageToken}
+		<button on:click={prev} class="px-7 py-1 border">
+			前へ
+		</button>
+	{/if}
 
-{#if nextPageToken}
-	<button on:click={next}>
-		次へ
-	</button>
-{/if}
+	{#if nextPageToken}
+		<button on:click={next} class="px-7 py-1 border">
+			次へ
+		</button>
+	{/if}
+</div>
