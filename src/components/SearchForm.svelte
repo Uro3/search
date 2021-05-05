@@ -28,9 +28,17 @@
 	};
 </script>
 
-<input bind:value={query}>
-<input bind:value={publishedAfterInput} type="date">
-<input bind:value={publishedBeforeInput} type="date">
-<button on:click={handleClick}>
-  検索
-</button>
+<div id="search-form-container" class="flex flex-col m-auto py-1 max-w-screen-sm space-y-1">
+  <div id="search-input-field" class="flex">
+    <input bind:value={query} class="flex-auto px-2 py-1 border" placeholder="検索ワード">
+    <button on:click={handleClick} class="flex-none px-2 py-1 bg-gray-300">
+      検索
+    </button>
+  </div>
+  <div id="search-filter-field" class="flex">
+    <span class="mr-2">アップロード日:</span>
+    <input bind:value={publishedAfterInput} type="date" class="flex-auto border-b">
+    <span class="mx-2">~</span>
+    <input bind:value={publishedBeforeInput} type="date" class="flex-auto border-b">
+  </div>
+</div>
