@@ -14,10 +14,6 @@
 			endpoint: youtubeDataApiEndpoint,
 			key: youtubeDataApiKey
 		});
-
-		console.log('youtubeDataApiEndpoint: ', youtubeDataApiEndpoint);
-		console.log('youtubeDataApiKey: ', youtubeDataApiKey);
-
 		const url = new URL(window.location.href);
 		channelId = url.searchParams.get('channelId') || '';
 	});

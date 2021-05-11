@@ -12,7 +12,8 @@ const initialResult: Result = {
 };
 
 const initialSearchParams: SearchParams = {
-  query: ''
+  query: '',
+  maxResults: 5
 };
 
 export const apiProps = writable(initialApiProps);

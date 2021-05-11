@@ -20,9 +20,6 @@
 			pageToken: token
 		}
 		const newResult: Result = await searchVideo($apiProps, params);
-
-    console.log('result: ', newResult);
-
     result.set(newResult);
 		currentSearchParams.set(params);
 	};

@@ -21,6 +21,7 @@ export type Result = {
 
 export type SearchParams = {
   query: string;
+  maxResults: number;
   channelId?: string;
   publishedAfter?: string;
   publishedBefore?: string;

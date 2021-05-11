@@ -2,13 +2,8 @@ import type { APIProps, Result, SearchParams } from '../types';
 
 export const searchVideo = async (api: APIProps, params: SearchParams): Promise<Result> => {
   const url = generateSearchVideoURL(api, params);
-
-  console.log('api request: ', url);
-
   const response = await fetch(url);
 	const data = await response.json();
-
-  console.log('api response: ', data);
 
   return {
     totalResults: data.pageInfo.totalResults,
@@ -34,7 +29,7 @@ export const getChannelTitleById = async (api: APIProps, channelId: string): Pro
 };
 
 const generateSearchVideoURL = (api: APIProps, params: SearchParams): string => {
-  const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&key=${api.key}`);
+  const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&maxResults=${params.maxResults}&key=${api.key}`);
   if (params.channelId) {
     url.searchParams.append('channelId', params.channelId);
   }
