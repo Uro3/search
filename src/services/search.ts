@@ -34,7 +34,7 @@ export const getChannelTitleById = async (api: APIProps, channelId: string): Pro
 };
 
 const generateSearchVideoURL = (api: APIProps, params: SearchParams): string => {
-  const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&key=${api.key}`);
+  const url = new URL(`${api.endpoint}?part=snippet&type=video&q=${params.query}&maxResults=${params.maxResults}&key=${api.key}`);
   if (params.channelId) {
     url.searchParams.append('channelId', params.channelId);
   }
