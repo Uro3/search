@@ -2,13 +2,8 @@ import type { APIProps, Result, SearchParams } from '../types';
 
 export const searchVideo = async (api: APIProps, params: SearchParams): Promise<Result> => {
   const url = generateSearchVideoURL(api, params);
-
-  console.log('api request: ', url);
-
   const response = await fetch(url);
 	const data = await response.json();
-
-  console.log('api response: ', data);
 
   return {
     totalResults: data.pageInfo.totalResults,

@@ -14,7 +14,6 @@
 	const getChannelTitle = async (id) => {
 		if (id) {
 			const channelTitle = await getChannelTitleById($apiProps, id);
-			console.log('channelTitle: ', channelTitle)
 			return channelTitle
 		}
 		return '';
